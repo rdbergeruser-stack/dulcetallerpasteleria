@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8f0"/>
+      <stop offset="100%" stop-color="#edd8c4"/>
+    </radialGradient>
+    <linearGradient id="cakeLayer1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#693318"/>
+      <stop offset="100%" stop-color="#8e4a28"/>
+    </linearGradient>
+    <linearGradient id="cakeLayer2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fdf4e7"/>
+      <stop offset="100%" stop-color="#faebd7"/>
+    </linearGradient>
+    <linearGradient id="berryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d32f2f"/>
+      <stop offset="100%" stop-color="#7b1113"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#3c1e11" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bgGlow)"/>
+  
+  <!-- Plate -->
+  <ellipse cx="150" cy="230" rx="110" ry="35" fill="#e8ded2" opacity="0.6"/>
+  <ellipse cx="150" cy="225" rx="100" ry="28" fill="#ffffff" filter="url(#dropShadow)"/>
+  <ellipse cx="150" cy="225" rx="85" ry="22" fill="#faf6f0"/>
+
+  <!-- Cake Slice Stack -->
+  <g filter="url(#dropShadow)">
+    <!-- Base Layer Chocolate -->
+    <path d="M 80 185 L 220 185 L 220 198 C 220 205, 80 205, 80 198 Z" fill="url(#cakeLayer1)"/>
+    <!-- Cream 1 -->
+    <path d="M 82 178 L 218 178 L 218 185 L 82 185 Z" fill="url(#cakeLayer2)"/>
+    <!-- Sponge 2 -->
+    <path d="M 85 165 L 215 165 L 215 178 L 85 178 Z" fill="#d99f59"/>
+    <!-- Cream 2 -->
+    <path d="M 88 158 L 212 158 L 212 165 L 88 165 Z" fill="url(#cakeLayer2)"/>
+    <!-- Sponge 3 -->
+    <path d="M 90 145 L 210 145 L 210 158 L 90 158 Z" fill="url(#cakeLayer1)"/>
+    <!-- Top Frosting -->
+    <path d="M 88 135 C 110 130, 190 130, 212 135 L 212 145 L 88 145 Z" fill="#fff9f2"/>
+    <!-- Frosting drips -->
+    <circle cx="100" cy="148" r="4" fill="#fff9f2"/>
+    <circle cx="140" cy="151" r="5" fill="#fff9f2"/>
+    <circle cx="180" cy="147" r="4" fill="#fff9f2"/>
+  </g>
+
+  <!-- Berries & Mint on Top -->
+  <circle cx="135" cy="125" r="10" fill="url(#berryGrad)"/>
+  <circle cx="152" cy="122" r="12" fill="url(#berryGrad)"/>
+  <circle cx="168" cy="126" r="9" fill="url(#berryGrad)"/>
+  <circle cx="144" cy="116" r="8" fill="#4a154b"/>
+  <!-- Highlights -->
+  <circle cx="132" cy="122" r="2.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="149" cy="119" r="3" fill="#ffffff" opacity="0.6"/>
+  <!-- Mint Leaf -->
+  <path d="M 160 115 C 180 100, 185 110, 180 120 C 170 125, 160 120, 160 115 Z" fill="#4caf50"/>
+  <path d="M 162 116 Q 170 114 178 116" stroke="#2e7d32" stroke-width="1" fill="none"/>
+</svg>
