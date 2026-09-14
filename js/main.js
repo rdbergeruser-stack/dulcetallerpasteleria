@@ -16,7 +16,7 @@ const MENU_DATA = [
     price: 4800,
     formattedPrice: '$4.800',
     description: 'Una propuesta rotativa de nuestras mejores tartas artesanales. (Consultar sabores)',
-    image: 'assets/images/cake-selection.svg',
+    image: 'assets/images/cake-selection.jpg',
     tags: ['Artesanal', 'Rotativo', 'Gourmet'],
     ingredients: 'Bizcochuelo artesanal húmedo, cremas pasteurizadas, frutas frescas seleccionadas según temporada.',
     allergens: 'Contiene gluten, huevo y lácteos. Consultar por variantes sin TACC.'
@@ -29,7 +29,7 @@ const MENU_DATA = [
     price: 4200,
     formattedPrice: '$4.200',
     description: 'Base de galleta crocante, relleno cremoso de queso horneo y una delicada cobertura de frutos rojos.',
-    image: 'assets/images/cheesecake.svg',
+    image: 'assets/images/cheesecake.jpg',
     tags: ['Clásico', 'Horneado', 'Frutos Rojos'],
     ingredients: 'Queso crema premium, galletas de manteca artesanales, coulis de frambuesas y moras silvestres.',
     allergens: 'Contiene gluten, lácteos y huevo.'
@@ -42,7 +42,7 @@ const MENU_DATA = [
     price: 3900,
     formattedPrice: '$3.900',
     description: 'Suave creme de limón y merengue tostado sobre una base de masa sablée.',
-    image: 'assets/images/lemon-pie.svg',
+    image: 'assets/images/lemon-pie.jpg',
     tags: ['Cítrico', 'Merengue Italiano', 'Sablée'],
     ingredients: 'Masa sablée a la manteca, curd de limones frescos, merengue italiano flameado al momento.',
     allergens: 'Contiene gluten, huevo y lácteos.'
@@ -55,7 +55,7 @@ const MENU_DATA = [
     price: 3600,
     formattedPrice: '$3.600',
     description: 'Cuadrado de puro chocolate intenso con fina costra crujiente de almendras.',
-    image: 'assets/images/brownie.svg',
+    image: 'assets/images/brownie.jpg',
     tags: ['Cacao 70%', 'Almendras', 'Húmedo'],
     ingredients: 'Chocolate semiamargo 70%, manteca de campo, cacao holandés, harina y almendras tostadas.',
     allergens: 'Contiene frutos secos (almendras), gluten, huevo y lácteos.'
@@ -68,7 +68,7 @@ const MENU_DATA = [
     price: 2400,
     formattedPrice: '$2.400',
     description: 'Galletas horneadas en el día con chips de chocolate.',
-    image: 'assets/images/cookies.svg',
+    image: 'assets/images/cookies.jpg',
     tags: ['Horneado Diario', 'Chips Choc', 'Crunchy'],
     ingredients: 'Manteca noisette, azúcar morena rubia, vainilla natural, chips de chocolate belga.',
     allergens: 'Contiene gluten, huevo y lácteos.'
@@ -81,7 +81,7 @@ const MENU_DATA = [
     price: 2200,
     formattedPrice: '$2.200',
     description: 'Masa tierna con relleno abundante del mejor dulce de leche porteño y borde de coco rallado.',
-    image: 'assets/images/alfajores.svg',
+    image: 'assets/images/alfajores.jpg',
     tags: ['Dulce de Leche', 'Coco Rallado', 'Porteño'],
     ingredients: 'Fécula de maíz, harina suave, dulce de leche repostero colonial, coco rallado fino.',
     allergens: 'Contiene gluten, lácteos y huevo.'
@@ -94,7 +94,7 @@ const MENU_DATA = [
     price: 3100,
     formattedPrice: '$3.100',
     description: 'Masa esponjosa y húmeda, preparada con las frutas más frescas y sabrosas de la temporada.',
-    image: 'assets/images/budin.svg',
+    image: 'assets/images/budin.jpg',
     tags: ['Frutas Frescas', 'Esponjoso', 'Glaseado'],
     ingredients: 'Harina leudante, manteca, ralladura y jugo de cítricos de estación, glaseado real.',
     allergens: 'Contiene gluten, huevo y lácteos.'
@@ -109,7 +109,7 @@ const MENU_DATA = [
     price: 2800,
     formattedPrice: '$2.800',
     description: 'Masa aireada y esponjosa, de interior tierno y corona ligeramente crujiente.',
-    image: 'assets/images/muffins.svg',
+    image: 'assets/images/muffins.jpg',
     tags: ['Vainilla Bourbon', 'Esponjoso', 'Desayuno'],
     ingredients: 'Vainas de vainilla de Madagascar, yogur natural, manteca, azúcar rubia.',
     allergens: 'Contiene gluten, huevo y lácteos.'
@@ -122,7 +122,7 @@ const MENU_DATA = [
     price: 2600,
     formattedPrice: '$2.600',
     description: 'Panecillos de textura hojaldrada y sutil notas de manteca.',
-    image: 'assets/images/scones.svg',
+    image: 'assets/images/scones.jpg',
     tags: ['Hojaldrado', 'Manteca', 'Confitura'],
     ingredients: 'Harina flor, manteca fría en cubos, crema de leche fresca, toque sutil de azúcar.',
     allergens: 'Contiene gluten y lácteos. Se acompaña con mermelada y crema.'
@@ -137,7 +137,7 @@ const MENU_DATA = [
     price: 2300,
     formattedPrice: '$2.300',
     description: 'Extracción vibrante de granos de especialidad, notas tostadas y crema de avellana.',
-    image: 'assets/images/espresso.svg',
+    image: 'assets/images/espresso.jpg',
     tags: ['100% Arábica', 'Single Origin', 'Intenso'],
     ingredients: 'Granos de especialidad 100% arábica seleccionados (tueste medio), agua filtrada.',
     allergens: 'Libre de alérgenos comunes. Sin gluten / Vegano.'
@@ -150,7 +150,7 @@ const MENU_DATA = [
     price: 2900,
     formattedPrice: '$2.900',
     description: 'Nuestro blend de la casa emulsionado con microespuma de leche sedosa.',
-    image: 'assets/images/latte.svg',
+    image: 'assets/images/latte.jpg',
     tags: ['Latte Art', 'Microespuma', 'Sedoso'],
     ingredients: 'Doble shot de espresso de la casa, leche texturizada (opción leche vegetal disponible).',
     allergens: 'Contiene lácteos (opción leche de almendra o avena disponible).'
@@ -163,7 +163,7 @@ const MENU_DATA = [
     price: 2700,
     formattedPrice: '$2.700',
     description: 'Selección de tés puros de Mauritius y blends infusionados a temperatura controlada.',
-    image: 'assets/images/tea.svg',
+    image: 'assets/images/tea.jpg',
     tags: ['Mauritius', 'En Hebras', 'Aromático'],
     ingredients: 'Hebras enteras de té negro, té verde, flores de jazmín y pétalos de rosas silvestres.',
     allergens: 'Libre de gluten. 100% natural.'
@@ -176,7 +176,7 @@ const MENU_DATA = [
     price: 3200,
     formattedPrice: '$3.200',
     description: 'Ganache de cacao puro fundida lentamente en leche texturizada.',
-    image: 'assets/images/chocolate.svg',
+    image: 'assets/images/chocolate.jpg',
     tags: ['Cacao Puro', 'Ganache', 'Artesanal'],
     ingredients: 'Chocolate cobertura 65%, leche entera cremosa, canela en rama y toque de vainilla.',
     allergens: 'Contiene lácteos.'
@@ -189,7 +189,7 @@ const MENU_DATA = [
     price: 3000,
     formattedPrice: '$3.000',
     description: 'Jugos de pura fruta de estación, prensados en frío.',
-    image: 'assets/images/juice.svg',
+    image: 'assets/images/juice.jpg',
     tags: ['Cold-Pressed', '100% Fruta', 'Sin Conservantes'],
     ingredients: 'Manzana verde, jengibre, naranja, zanahoria y espinaca prensados en frío al instante.',
     allergens: 'Libre de gluten y lácteos. 100% Vegano.'

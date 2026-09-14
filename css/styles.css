@@ -5,14 +5,14 @@
 
 :root {
   /* Color Palette - Artisanal Warm Bakery Theme */
-  --color-bg-main: #fcf9f4;
+  --color-bg-main: #FBF8F3;
   --color-bg-secondary: #f4ece1;
   --color-bg-card: #ffffff;
   --color-bg-card-hover: #fdfbf7;
   
-  --color-primary: #8e4420;
-  --color-primary-dark: #2a1810;
-  --color-primary-light: #b3592c;
+  --color-primary: #b85226;
+  --color-primary-dark: #281711;
+  --color-primary-light: #c96434;
   --color-accent: #c96d3b;
   --color-accent-gold: #d99a3e;
   
@@ -228,31 +228,31 @@ ul, ol {
 }
 
 .brand-title-top {
-  font-family: var(--font-serif);
-  font-size: 1.7rem;
+  font-family: var(--font-sans);
+  font-size: 1.85rem;
   font-weight: 800;
   color: var(--color-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .brand-title-top .dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent-gold);
+  width: 7px;
+  height: 7px;
+  background: var(--color-primary);
   border-radius: 50%;
-  margin-left: 2px;
+  margin-left: 1px;
 }
 
 .brand-title-bottom {
-  font-family: var(--font-serif);
-  font-size: 1.55rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 800;
   color: var(--color-primary-dark);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
 }
 
 /* Navigation Links */
