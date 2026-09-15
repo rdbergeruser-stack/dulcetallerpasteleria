@@ -379,7 +379,7 @@ function checkoutViaWhatsApp() {
   message += `\nMuchas gracias.`;
 
   const encodedMessage = encodeURIComponent(message);
-  const phoneNumber = '323358878'; // Phone number from PDF footer: (32) 335 8878
+  const phoneNumber = '5491100000000'; // WhatsApp oficial del Proyecto Dulce Taller
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   window.open(whatsappUrl, '_blank');
@@ -630,7 +630,193 @@ function setupNavigation() {
 // ==========================================================================
 // 10. INITIALIZATION
 // ==========================================================================
+
+// ==========================================================================
+// 11. WORKSHOPS & DIFFERENTIATED RESERVATIONS (PROYECTO INTEGRADOR)
+// ==========================================================================
+
+const WORKSHOPS_DATA = {
+  cookies: {
+    id: 'cookies',
+    name: 'Taller de Cookies Artesanales: Masas & Glasé',
+    price: 7500,
+    deposit: 3750,
+    level: 'Nivel Inicial',
+    schedule: 'Sábados 16:00 a 17:30 hs'
+  },
+  cupcakes: {
+    id: 'cupcakes',
+    name: 'Taller de Cupcakes & Manga Pastelera',
+    price: 8200,
+    deposit: 4100,
+    level: 'Todos los niveles',
+    schedule: 'Sábados 18:00 a 19:30 hs'
+  },
+  chocolateria: {
+    id: 'chocolateria',
+    name: 'Taller de Chocolatería & Bombones Artesanales',
+    price: 8900,
+    deposit: 4450,
+    level: 'Especialidad',
+    schedule: 'Domingos 16:30 a 18:00 hs'
+  }
+};
+
+function switchReservationTab(tabName) {
+  const btnMesa = document.getElementById('tabBtnMesa');
+  const btnTaller = document.getElementById('tabBtnTaller');
+  const panelMesa = document.getElementById('resPanelMesa');
+  const panelTaller = document.getElementById('resPanelTaller');
+
+  if (!btnMesa || !btnTaller || !panelMesa || !panelTaller) return;
+
+  if (tabName === 'taller') {
+    btnTaller.classList.add('active');
+    btnMesa.classList.remove('active');
+    panelTaller.classList.add('active');
+    panelMesa.classList.remove('active');
+  } else {
+    btnMesa.classList.add('active');
+    btnTaller.classList.remove('active');
+    panelMesa.classList.add('active');
+    panelTaller.classList.remove('active');
+  }
+}
+
+function openWorkshopBooking(workshopKey) {
+  switchReservationTab('taller');
+  const select = document.getElementById('wkSelect');
+  if (select && workshopKey) {
+    select.value = workshopKey;
+    updateWorkshopDepositInfo();
+  }
+  const target = document.getElementById('reservas');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function updateWorkshopDepositInfo() {
+  const select = document.getElementById('wkSelect');
+  const qtySelect = document.getElementById('wkParticipants');
+  const totalElem = document.getElementById('wkTotalAmount');
+  const depositElem = document.getElementById('wkDepositAmount');
+  if (!select || !totalElem || !depositElem) return;
+
+  const key = select.value;
+  const wk = WORKSHOPS_DATA[key];
+  const qty = parseInt(qtySelect?.value || '1', 10);
+  if (wk) {
+    const total = wk.price * qty;
+    const deposit = wk.deposit * qty;
+    totalElem.textContent = `$${total.toLocaleString('es-AR')}`;
+    depositElem.textContent = `$${deposit.toLocaleString('es-AR')}`;
+  }
+}
+
+function handleTableReservation(e) {
+  e.preventDefault();
+  const name = document.getElementById('resName')?.value.trim() || '';
+  const phone = document.getElementById('resPhone')?.value.trim() || '';
+  const guests = document.getElementById('resGuests')?.value || '2';
+  const areaSelect = document.getElementById('resArea');
+  const area = areaSelect?.options[areaSelect.selectedIndex]?.text || 'Salón';
+  const date = document.getElementById('resDate')?.value || '';
+  const time = document.getElementById('resTime')?.value || '';
+  const notes = document.getElementById('resNotes')?.value.trim() || 'Sin notas';
+
+  showToast(`¡Mesa solicitada para ${name}! Redirigiendo a WhatsApp...`, 'success');
+
+  const message = `*¡HOLA DULCE TALLER!* ☕\nQuisiera confirmar una *Reserva de Mesa en Cafetería*:\n\n` +
+    `👤 *Nombre:* ${name}\n` +
+    `📞 *Teléfono:* ${phone}\n` +
+    `👥 *Comensales:* ${guests} personas\n` +
+    `📍 *Ubicación:* ${area}\n` +
+    `📅 *Fecha:* ${date}\n` +
+    `⏰ *Horario:* ${time}\n` +
+    `📝 *Observaciones:* ${notes}\n\n` +
+    `Aguardo su confirmación. ¡Muchas gracias!`;
+
+  const encoded = encodeURIComponent(message);
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=5491100000000&text=${encoded}`;
+  window.open(whatsappUrl, '_blank');
+
+  document.getElementById('reservationTableForm')?.reset();
+}
+
+function handleWorkshopReservation(e) {
+  e.preventDefault();
+  const name = document.getElementById('wkName')?.value.trim() || '';
+  const phone = document.getElementById('wkPhone')?.value.trim() || '';
+  const email = document.getElementById('wkEmail')?.value.trim() || '';
+  const qtySelect = document.getElementById('wkParticipants');
+  const qty = parseInt(qtySelect?.value || '1', 10);
+  const wkSelect = document.getElementById('wkSelect');
+  const wkKey = wkSelect?.value || 'cookies';
+  const wk = WORKSHOPS_DATA[wkKey] || WORKSHOPS_DATA.cookies;
+  const turnoSelect = document.getElementById('wkTurno');
+  const turno = turnoSelect?.options[turnoSelect.selectedIndex]?.text || '';
+  const allergies = document.getElementById('wkAllergies')?.value.trim() || 'Ninguna';
+
+  const total = wk.price * qty;
+  const deposit = wk.deposit * qty;
+
+  showToast(`¡Inscripción recibida para ${name}! Abriendo WhatsApp para coordinar la seña...`, 'success');
+
+  const message = `*¡HOLA DULCE TALLER!* 🧁\nQuisiera inscribirme en un *Taller de Pastelería Artesanal*:\n\n` +
+    `🎨 *Taller:* ${wk.name}\n` +
+    `📅 *Turno:* ${turno}\n` +
+    `👤 *Participante:* ${name}\n` +
+    `📞 *Teléfono:* ${phone}\n` +
+    `✉️ *Email:* ${email}\n` +
+    `👥 *Lugares solicitados:* ${qty}\n` +
+    `⚠️ *Alergias / Intolerancias:* ${allergies}\n\n` +
+    `💰 *Costo Total:* $${total.toLocaleString('es-AR')}\n` +
+    `💳 *Seña previa a transferir (50%):* $${deposit.toLocaleString('es-AR')}\n\n` +
+    `Aguardo sus datos bancarios o link de pago para transferir la seña y asegurar el lugar. ¡Muchas gracias!`;
+
+  const encoded = encodeURIComponent(message);
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=5491100000000&text=${encoded}`;
+  window.open(whatsappUrl, '_blank');
+
+  document.getElementById('reservationWorkshopForm')?.reset();
+  updateWorkshopDepositInfo();
+}
+
+function openCateringWhatsApp() {
+  const message = `*¡HOLA DULCE TALLER!* 🎂\nQuisiera consultar por *Tortas Personalizadas / Opciones de Catering* para un evento.\n\n` +
+    `¿Podrían enviarme su catálogo de mesas dulces, sabores de tortas y disponibilidad?\n\nMuchas gracias.`;
+  const encoded = encodeURIComponent(message);
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=5491100000000&text=${encoded}`;
+  window.open(whatsappUrl, '_blank');
+}
+
+function setupFaqAccordion() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked item
+      if (!isOpen) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  setupFaqAccordion();
+  updateWorkshopDepositInfo();
   loadCartFromStorage();
   setupFiltersAndSearch();
   setupReservationForm();
