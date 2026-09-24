@@ -638,26 +638,26 @@ function setupNavigation() {
 const WORKSHOPS_DATA = {
   cookies: {
     id: 'cookies',
-    name: 'Taller de Cookies Artesanales: Masas & Glasé',
+    name: 'Pequeños Pasteleros: Decoración de Cookies (4 a 12 años)',
     price: 7500,
     deposit: 3750,
-    level: 'Nivel Inicial',
+    level: 'Edad: 4 a 12 años',
     schedule: 'Sábados 16:00 a 17:30 hs'
   },
   cupcakes: {
     id: 'cupcakes',
-    name: 'Taller de Cupcakes & Manga Pastelera',
+    name: 'Mini Chef: Cupcakes & Manga Pastelera (6 a 12 años)',
     price: 8200,
     deposit: 4100,
-    level: 'Todos los niveles',
+    level: 'Edad: 6 a 12 años',
     schedule: 'Sábados 18:00 a 19:30 hs'
   },
   chocolateria: {
     id: 'chocolateria',
-    name: 'Taller de Chocolatería & Bombones Artesanales',
+    name: 'Chocolatería Creativa para Chicos (6 a 12 años)',
     price: 8900,
     deposit: 4450,
-    level: 'Especialidad',
+    level: 'Edad: 6 a 12 años',
     schedule: 'Domingos 16:30 a 18:00 hs'
   }
 };
@@ -746,7 +746,8 @@ function handleTableReservation(e) {
 
 function handleWorkshopReservation(e) {
   e.preventDefault();
-  const name = document.getElementById('wkName')?.value.trim() || '';
+  const adultName = document.getElementById('wkAdultName')?.value.trim() || document.getElementById('wkName')?.value.trim() || '';
+  const childName = document.getElementById('wkChildName')?.value.trim() || '';
   const phone = document.getElementById('wkPhone')?.value.trim() || '';
   const email = document.getElementById('wkEmail')?.value.trim() || '';
   const qtySelect = document.getElementById('wkParticipants');
@@ -761,16 +762,17 @@ function handleWorkshopReservation(e) {
   const total = wk.price * qty;
   const deposit = wk.deposit * qty;
 
-  showToast(`¡Inscripción recibida para ${name}! Abriendo WhatsApp para coordinar la seña...`, 'success');
+  showToast(`¡Inscripción recibida para ${childName || adultName}! Abriendo WhatsApp para coordinar la seña...`, 'success');
 
-  const message = `*¡HOLA DULCE TALLER!* 🧁\nQuisiera inscribirme en un *Taller de Pastelería Artesanal*:\n\n` +
+  const message = `*¡HOLA DULCE TALLER!* 🧁\nQuisiera inscribir a un peque en el *Taller Infantil de Pastelería*:\n\n` +
     `🎨 *Taller:* ${wk.name}\n` +
     `📅 *Turno:* ${turno}\n` +
-    `👤 *Participante:* ${name}\n` +
+    `👶 *Niño/a (Nombre y Edad):* ${childName || '(A coordinar)'}\n` +
+    `👤 *Adulto Responsable:* ${adultName}\n` +
     `📞 *Teléfono:* ${phone}\n` +
     `✉️ *Email:* ${email}\n` +
-    `👥 *Lugares solicitados:* ${qty}\n` +
-    `⚠️ *Alergias / Intolerancias:* ${allergies}\n\n` +
+    `👥 *Cantidad de chicos:* ${qty}\n` +
+    `⚠️ *Alergias / Sensibilidades:* ${allergies}\n\n` +
     `💰 *Costo Total:* $${total.toLocaleString('es-AR')}\n` +
     `💳 *Seña previa a transferir (50%):* $${deposit.toLocaleString('es-AR')}\n\n` +
     `Aguardo sus datos bancarios o link de pago para transferir la seña y asegurar el lugar. ¡Muchas gracias!`;

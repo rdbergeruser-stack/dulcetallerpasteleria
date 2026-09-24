@@ -216,9 +216,27 @@ ul, ol {
 /* Brand Logo */
 .brand-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   text-decoration: none;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover {
+  transform: translateY(-1px);
+}
+
+.brand-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(43, 27, 19, 0.08));
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.03);
+  filter: drop-shadow(0 3px 8px rgba(43, 27, 19, 0.15));
 }
 
 .logo-text-wrapper {
@@ -1234,6 +1252,95 @@ ul, ol {
   color: #ebdcd0;
   padding: var(--space-2xl) 0 var(--space-md);
   border-top: 1px solid #382419;
+}
+
+/* Footer Identity & Academic Row */
+.footer-brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: var(--space-lg);
+}
+
+.footer-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+}
+
+.footer-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #FBF8F3;
+  padding: 8px 18px;
+  border-radius: 12px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 4px;
+}
+
+.footer-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-tagline {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: #ffecd6;
+  font-weight: 600;
+}
+
+.footer-subtext {
+  font-size: 0.88rem;
+  color: #c4b4a7;
+  line-height: 1.45;
+}
+
+.footer-academic-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 163, 115, 0.25);
+  border-radius: 12px;
+  padding: var(--space-md) var(--space-lg);
+  max-width: 420px;
+}
+
+.academic-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-gold);
+  background: rgba(212, 163, 115, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.footer-academic-badge h4 {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.footer-academic-badge p {
+  font-size: 0.85rem;
+  color: #ebdcd0;
+  margin-bottom: 4px;
+}
+
+.footer-academic-badge small {
+  font-size: 0.78rem;
+  color: #a8988d;
+  display: block;
 }
 
 .footer-main-row {
@@ -2272,6 +2379,15 @@ ul, ol {
 }
 
 @media (max-width: 580px) {
+  .brand-logo-img {
+    height: 42px;
+  }
+
+  .footer-brand-row {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
   .menu-item-card {
     align-items: flex-start;
   }
