@@ -816,7 +816,20 @@ function setupFaqAccordion() {
   });
 }
 
+function syncMenuPrices() {
+  MENU_DATA.forEach(item => {
+    const card = document.querySelector(`.menu-item-card[data-id="${item.id}"]`);
+    if (card) {
+      const priceElem = card.querySelector('.menu-item-price');
+      if (priceElem) {
+        priceElem.textContent = item.formattedPrice;
+      }
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  syncMenuPrices();
   setupFaqAccordion();
   updateWorkshopDepositInfo();
   loadCartFromStorage();
