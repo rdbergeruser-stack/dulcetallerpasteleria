@@ -3,6 +3,8 @@
  * Main Application Logic & Interactivity
  */
 
+const DULCE_TALLER_PHONE = '5491171392290'; // WhatsApp oficial: +54 11 7139 2290
+
 // ==========================================================================
 // 1. DATA STORE: Menu Catalog (Exactly matching PDF contents)
 // ==========================================================================
@@ -75,7 +77,7 @@ const MENU_DATA = [
   },
   {
     id: 'alfajores',
-    name: 'ALFAJORES PORTEÑOS',
+    name: 'ALFAJORES',
     category: 'pasteleria',
     subCategory: 'tradicional',
     price: 2200,
@@ -116,7 +118,7 @@ const MENU_DATA = [
   },
   {
     id: 'scones',
-    name: 'SCONES ESTILO INGLÉS',
+    name: 'SCONES',
     category: 'cafeteria',
     subCategory: 'bolleria',
     price: 2600,
@@ -379,7 +381,7 @@ function checkoutViaWhatsApp() {
   message += `\nMuchas gracias.`;
 
   const encodedMessage = encodeURIComponent(message);
-  const phoneNumber = '5491100000000'; // WhatsApp oficial del Proyecto Dulce Taller
+  const phoneNumber = DULCE_TALLER_PHONE; // WhatsApp oficial de Dulce Taller (+54 11 7139 2290)
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   window.open(whatsappUrl, '_blank');
@@ -738,7 +740,7 @@ function handleTableReservation(e) {
     `Aguardo su confirmación. ¡Muchas gracias!`;
 
   const encoded = encodeURIComponent(message);
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=5491100000000&text=${encoded}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${DULCE_TALLER_PHONE}&text=${encoded}`;
   window.open(whatsappUrl, '_blank');
 
   document.getElementById('reservationTableForm')?.reset();
@@ -778,7 +780,7 @@ function handleWorkshopReservation(e) {
     `Aguardo sus datos bancarios o link de pago para transferir la seña y asegurar el lugar. ¡Muchas gracias!`;
 
   const encoded = encodeURIComponent(message);
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=5491100000000&text=${encoded}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${DULCE_TALLER_PHONE}&text=${encoded}`;
   window.open(whatsappUrl, '_blank');
 
   document.getElementById('reservationWorkshopForm')?.reset();
@@ -789,7 +791,7 @@ function openCateringWhatsApp() {
   const message = `*¡HOLA DULCE TALLER!* 🎂\nQuisiera consultar por *Tortas Personalizadas / Opciones de Catering* para un evento.\n\n` +
     `¿Podrían enviarme su catálogo de mesas dulces, sabores de tortas y disponibilidad?\n\nMuchas gracias.`;
   const encoded = encodeURIComponent(message);
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=5491100000000&text=${encoded}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${DULCE_TALLER_PHONE}&text=${encoded}`;
   window.open(whatsappUrl, '_blank');
 }
 
